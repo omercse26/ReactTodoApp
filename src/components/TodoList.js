@@ -8,9 +8,9 @@ class TodoList extends React.Component {
   constructor(props) {
     super(props);
 
-    let { shouldComponentUpdate } = React.addons.PureRenderMixin;
+//let { shouldComponentUpdate } = React.addons.PureRenderMixin;
 
-    this.shouldComponentUpdate    = shouldComponentUpdate.bind(this);
+  //  this.shouldComponentUpdate    = shouldComponentUpdate.bind(this);
     this.state                    = { tasks: TodoListStore.getState() };
     this.listChanged              = this.listChanged.bind(this);
   }

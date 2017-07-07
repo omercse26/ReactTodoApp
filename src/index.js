@@ -1,6 +1,7 @@
 import 'core-js/fn/object/assign';
 import React from 'react';
 import ReactDOM from 'react-dom';
+//import ReactA    from 'react-addons';
 //import TodoList from 'components/TodoList';
 //import App from 'components/Main'
 import TodoList from 'components/Main';

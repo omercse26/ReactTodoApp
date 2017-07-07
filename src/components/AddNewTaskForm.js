@@ -1,5 +1,6 @@
 import React                 from 'react';
-import { Input, Button }     from 'react-bootstrap';
+import { FormGroup, InputGroup, FormControl, Button }     from 'react-bootstrap';
+
 
 import AddNewTaskFormActions from 'actions/AddNewTaskForm';
 import TodoListActions       from 'actions/TodoList';
@@ -10,11 +11,7 @@ class AddNewTaskForm extends React.Component {
   constructor(props) {
     super(props);
 
-    let { shouldComponentUpdate } = React.addons.PureRenderMixin;
-
     this.state = AddNewTaskFormStore.getState();
-
-    this.shouldComponentUpdate = shouldComponentUpdate.bind(this);
     this.formChanged = this.formChanged.bind(this);
     this.validationClass = this.validationClass.bind(this);
     this.submit = this.submit.bind(this);
@@ -40,21 +37,24 @@ class AddNewTaskForm extends React.Component {
     }[!!this.state.validationError.length];
   }
 
+
+
   render() {
     return (
-      <form onSubmit={this.submit}>
-        <Input
-          key="taskContent"
+      <form>
+        <FormGroup>
+            <InputGroup>
+            <FormControl key="taskContent"
           type="text"
           value={this.state.content}
           placeholder="4+ characters..."
           label="Enter content:"
           bsStyle={this.validationClass()}
-          help={this.state.validationError}
-          hasFeedback
-          onChange={this.changeContent} />
+          onChange={this.changeContent}  />
+            </InputGroup>
+        </FormGroup>
         <Button key="submitButton" type="submit"
-                bsStyle="primary" disabled={!this.state.submittable}>Submit</Button>
+                bsStyle="primary"> Submit </Button>
       </form>
     );
   }

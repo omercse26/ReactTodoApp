@@ -5,7 +5,7 @@ import React from 'react';
 import { Grid, Row, ListGroup } from 'react-bootstrap';
 import TodoListStore            from 'stores/TodoList';
 import TodoListTask             from 'components/TodoListTask';
-import AddNewTaskForm           from 'components/AddNewTaskForm';
+import AddNewTaskFormI          from 'components/AddNewTaskForm';
 
 let yeomanImage = require('../images/yeoman.png');
 
@@ -27,9 +27,9 @@ class TodoList extends React.Component {
   constructor(props) {
     super(props);
 
-    let { shouldComponentUpdate } = React.addons.PureRenderMixin;
+    //let { shouldComponentUpdate } = React.addons.PureRenderMixin;
 
-    this.shouldComponentUpdate    = shouldComponentUpdate.bind(this);
+    //this.shouldComponentUpdate    = shouldComponentUpdate.bind(this);
     this.state                    = { tasks: TodoListStore.getState() };
     this.listChanged              = this.listChanged.bind(this);
   }
@@ -44,7 +44,7 @@ class TodoList extends React.Component {
 
     return (
       <Grid>
-        <Row fluid={true}>
+        <Row>
           <h1>Tasks:</h1>
           <ListGroup>
             {tasks.map(task =>
@@ -52,7 +52,7 @@ class TodoList extends React.Component {
              ).toJS()}
           </ListGroup>
           <h2>Add new task:</h2>
-          <AddNewTaskForm />
+          <AddNewTaskFormI />
         </Row>
       </Grid>
     );
