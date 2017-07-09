@@ -8,10 +8,13 @@ class AddNewTaskFormStore {
     this.submittable = false;
 
     let { changeContent, clearForm } = Actions;
-    this.bindListeners({ changeContent, clearForm });
+    this.bindListeners({
+      change: changeContent,
+      clear: clearForm });
   }
 
-  changeContent(newContent) {
+  change(newContent) {
+    console.log('lollo');
     let validationError = this.validate(newContent),
         submittable     = validationError.length === 0;
 
@@ -20,7 +23,7 @@ class AddNewTaskFormStore {
                     submittable });
   }
 
-  clearForm() { this.setState({ validationError: '',
+  clear() { this.setState({ validationError: '',
                                 content: '',
                                 submittable: false }); }
 
@@ -29,4 +32,4 @@ class AddNewTaskFormStore {
   }
 }
 
-export default AltInstance.createStore(AddNewTaskFormStore);
+export default AltInstance.createStore(AddNewTaskFormStore, 'AddNewTaskFormStore');

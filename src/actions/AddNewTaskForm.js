@@ -2,11 +2,13 @@ import AltInstance from 'lib/AltInstance';
 
 class AddNewTaskFormActions {
   changeContent(content) {
-    this.dispatch(content);
+    console.log('jjjj');
+    //this.dispatch(content);
+    return content;
   }
 
   clearForm() {
-    this.dispatch();
+    return '';
   }
 }
 
